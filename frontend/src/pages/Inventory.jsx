@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import { usePageView } from '../hooks/usePageView'
+
 export default function Inventory() {
   const [vehicles, setVehicles] = useState([])
   const [loading, setLoading] = useState(true)
+  usePageView('inventory')
 
   useEffect(() => {
     axios.get('/api/inventory/')
